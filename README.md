@@ -1,6 +1,7 @@
 # LabelDemo-swift
 swift-label各种属性
- //1.创建
+
+        //1.创建
         let label=UILabel(frame:CGRect(origin: CGPoint(x:100,y:100),size: CGSize(width:200,height:100)))
         
         //label.frame = CGRect(origin: CGPoint(x:100,y:100),size: CGSize(width:200,height:40))
@@ -54,11 +55,11 @@ swift-label各种属性
         
         // 14、lineBreakMode设置文字过长时的显示格式
         //label.lineBreakMode = NSLineBreakMode.byCharWrapping//以字符为显示单位显示，后面部分省略不显示
-//        label.lineBreakMode=NSLineBreakMode.byClipping//剪切与文本宽度相同的内容长度，后半部分被删除。
-//        label.lineBreakMode=NSLineBreakMode.byTruncatingHead//前面部分文字以……方式省略，显示尾部文字内容。
-//        label.lineBreakMode=NSLineBreakMode.byTruncatingMiddle//中间的内容以……方式省略，显示头尾的文字内容。
-//        label.lineBreakMode=NSLineBreakMode.byTruncatingTail//结尾部分的内容以……方式省略，显示头的文字内容。
-//        label.lineBreakMode=NSLineBreakMode.byWordWrapping//以单词为显示单位显示，后面部分省略不显示。
+        //        label.lineBreakMode=NSLineBreakMode.byClipping//剪切与文本宽度相同的内容长度，后半部分被删除。
+        //        label.lineBreakMode=NSLineBreakMode.byTruncatingHead//前面部分文字以……方式省略，显示尾部文字内容。
+        //        label.lineBreakMode=NSLineBreakMode.byTruncatingMiddle//中间的内容以……方式省略，显示头尾的文字内容。
+        //        label.lineBreakMode=NSLineBreakMode.byTruncatingTail//结尾部分的内容以……方式省略，显示头的文字内容。
+        //        label.lineBreakMode=NSLineBreakMode.byWordWrapping//以单词为显示单位显示，后面部分省略不显示。
         
         // 16、attributedText设置标签属性文本    
         let text:NSString = "will.JJ"
@@ -68,8 +69,8 @@ swift-label各种属性
         label.attributedText = textLabelStr;
         
         // 17、竖排文字显示每个文字加一个换行符，这是最方便和简单的实现方式。
-//        label.text="这\n个\n是\n竖\n排\n方\n向\n的\n显\n示"
-//        label.numberOfLines=0
+        //        label.text="这\n个\n是\n竖\n排\n方\n向\n的\n显\n示"
+        //        label.numberOfLines=0
         
         // 18、计算UILabel随字体多行后的高度
         let bounds:CGRect=CGRect(origin: CGPoint(x:100,y:100),size: CGSize(width:200,height:100))
@@ -80,47 +81,47 @@ swift-label各种属性
         let msgLabel=UILabel(frame:CGRect(origin: CGPoint(x:100,y:300),size: CGSize(width:200,height:100)))
         msgLabel.text = "用于管理内容的绘制有关的对象显示在一个滚动视图应该瓦片的内容的子视图，以便没有视图超过屏幕的大小。当用户在滚动滚动视图，这个对象应该添加和删除子视图是必要的。"
         //创建NSMutableAttributedString
-//        let attributesString = NSMutableAttributedString.init(string: label.text!)
-//        //创建NSMutableParagraphStyle
-//        let paraghStyle = NSMutableParagraphStyle()
-//        //设置行距(同样着这里可以设置行号,间距,对其方式)
-//        paraghStyle.lineSpacing = 10
-//        //添加属性,设置行间距
-//        attributesString.addAttributes([NSParagraphStyleAttributeName : paraghStyle], range: NSMakeRange(0, (label.text?.characters.count)!))
-//        label.attributedText = attributesString
-        msgLabel.font = UIFont.systemFont(ofSize: 14
-        )
-        msgLabel.textColor = UIColor.red
-        let string:NSString = msgLabel.text! as NSString
-        let options:NSStringDrawingOptions = .usesLineFragmentOrigin
-        let boundingRect = string.boundingRect(with: CGSize(width: 200,height: 0), options: options, attributes:[NSFontAttributeName:msgLabel.font], context: nil)
-        msgLabel.frame = CGRect(origin: CGPoint(x:100,y:230),size: CGSize(width:200,height:boundingRect.height))
-        msgLabel.numberOfLines = 0;
-        msgLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        self.view.addSubview(msgLabel)
+     //        let attributesString = NSMutableAttributedString.init(string: label.text!)
+     //        //创建NSMutableParagraphStyle
+     //        let paraghStyle = NSMutableParagraphStyle()
+     //        //设置行距(同样着这里可以设置行号,间距,对其方式)
+     //        paraghStyle.lineSpacing = 10
+     //        //添加属性,设置行间距
+     //        attributesString.addAttributes([NSParagraphStyleAttributeName : paraghStyle], range: NSMakeRange(0, (label.text?.characters.count)!))
+     //        label.attributedText = attributesString
+             msgLabel.font = UIFont.systemFont(ofSize: 14
+             )
+             msgLabel.textColor = UIColor.red
+             let string:NSString = msgLabel.text! as NSString
+             let options:NSStringDrawingOptions = .usesLineFragmentOrigin
+             let boundingRect = string.boundingRect(with: CGSize(width: 200,height: 0), options: options, attributes:[NSFontAttributeName:msgLabel.font], context: nil)
+             msgLabel.frame = CGRect(origin: CGPoint(x:100,y:230),size: CGSize(width:200,height:boundingRect.height))
+             msgLabel.numberOfLines = 0;
+             msgLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+             self.view.addSubview(msgLabel)
+
+             // 20、渐变字体Label
+             //let img:UIImage = UIImage.init(named: "btn.png")!
+             //let titleColor:UIColor = UIColor.init(patternImage: img)
+             let titleColor:UIColor=UIColor.init(patternImage:UIImage.init(named:"btn.png")!)
+             let title:NSString="Setting"
+             let titleLabel:UILabel=UILabel.init(frame: CGRect(origin: CGPoint(x:100,y:400),size: CGSize(width:80,height:44)))
+             titleLabel.textColor = titleColor
+             titleLabel.text = title as String
+             titleLabel.font=UIFont.boldSystemFont(ofSize: 20)
+             titleLabel.backgroundColor=UIColor.clear
+             self.view.addSubview(titleLabel)
+
+             // 21、Label添加边框
+             titleLabel.layer.borderColor=UIColor.gray.cgColor
+             titleLabel.layer.borderWidth=2
+
+             // 22、设置圆角
+             titleLabel.layer.cornerRadius=10
+             titleLabel.backgroundColor=UIColor.cyan
+
+             // 23、设置背景色圆角
+             titleLabel.clipsToBounds = true
+             view.addSubview(label)
         
-        // 20、渐变字体Label
-        //let img:UIImage = UIImage.init(named: "btn.png")!
-        //let titleColor:UIColor = UIColor.init(patternImage: img)
-        let titleColor:UIColor=UIColor.init(patternImage:UIImage.init(named:"btn.png")!)
-        let title:NSString="Setting"
-        let titleLabel:UILabel=UILabel.init(frame: CGRect(origin: CGPoint(x:100,y:400),size: CGSize(width:80,height:44)))
-        titleLabel.textColor = titleColor
-        titleLabel.text = title as String
-        titleLabel.font=UIFont.boldSystemFont(ofSize: 20)
-        titleLabel.backgroundColor=UIColor.clear
-        self.view.addSubview(titleLabel)
-        
-        // 21、Label添加边框
-        titleLabel.layer.borderColor=UIColor.gray.cgColor
-        titleLabel.layer.borderWidth=2
-        
-        // 22、设置圆角
-        titleLabel.layer.cornerRadius=10
-        titleLabel.backgroundColor=UIColor.cyan
-        
-        // 23、设置背景色圆角
-        titleLabel.clipsToBounds = true
-        view.addSubview(label)
-        
-       ![](https://github.com/jixiang0903/LabelDemo-swift/blob/master/WechatIMG48.jpeg)  
+![](https://github.com/jixiang0903/LabelDemo-swift/blob/master/WechatIMG48.jpeg)  
