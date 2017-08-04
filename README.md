@@ -122,5 +122,5 @@ swift-label各种属性
         // 23、设置背景色圆角
         titleLabel.clipsToBounds = true
         view.addSubview(label)
-       
-        ![image](https://github.com/jixiang0903/LabelDemo-swift/blob/master/WechatIMG48.jpeg)
+        
+       ![](https://github.com/jixiang0903/LabelDemo-swift/blob/master/WechatIMG48.jpeg)  
